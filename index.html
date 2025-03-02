@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>چت گروهی</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="chat-container">
+            <h2>چت گروهی</h2>
+            <input id="name" type="text" placeholder="نام شما" />
+            <input id="message" type="text" placeholder="پیام شما" />
+            <button onclick="sendMessage()">ارسال</button>
+
+            <h3>پیام‌ها:</h3>
+            <div id="chat"></div>
+        </div>
+
+        <script>
+            async function loadMessages() {
+                const res = await fetch(
+                    "/messages",
+                );
+                const messages = await res.json();
+                document.getElementById("chat").innerHTML = messages
+                    .map((m) => `<p><b>${m.name}:</b> ${m.message}</p>`)
+                    .join("");
+            }
+
+            async function sendMessage() {
+                const name = document.getElementById("name").value;
+                const message = document.getElementById("message").value;
+                await fetch("/messages", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, message }),
+                });
+                loadMessages();
+            }
+
+            setInterval(loadMessages, 3000);
+            loadMessages();
+        </script>
+    </body>
+</html>

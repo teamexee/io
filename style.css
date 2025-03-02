@@ -1,0 +1,66 @@
+
+/* تنظیمات کلی */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    direction: rtl;
+}
+
+/* جعبه چت */
+.chat-container {
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* ورودی‌ها */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* دکمه ارسال */
+button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* محتوای چت */
+#chat {
+    text-align: right;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+/* عنوان‌ها */
+h2, h3 {
+    color: #333;
+}
